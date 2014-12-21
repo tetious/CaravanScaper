@@ -1,0 +1,10 @@
+{
+  "name": "CaravanScraper",
+  "version": "0.1.0",
+  "dependencies": {
+    "moment": "2.8",
+    "phantomjs": "1.9",
+    "casperjs": "1.1.0-beta3"
+  },
+  "private": "true"
+}
