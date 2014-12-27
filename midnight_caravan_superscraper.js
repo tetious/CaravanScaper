@@ -7,11 +7,11 @@ var casper = require('casper').create(),
 casper.start("http://caravantomidnight.com/show-archive/");
 
 var currentMonthUrl = "http://caravantomidnight.com/show-archive-"
-  + moment().format("MMMM-YYYY/").toLowerCase();
-
+  + moment(casper.cli.get(0)).format("MMMM-YYYY/").toLowerCase();
+var basePath = casper.cli.get(1);
 var episodes = [];
 
-var mp3Folder = 'mp3/';
+var mp3Folder = basePath + 'mp3/';
 
 function downloadEpisode(url, file)
 {
@@ -51,7 +51,7 @@ casper.then(function () {
     episodes.push({
       number: episodeNumber,
       description: episodeDescription,
-      file: mp3FileUrl + 'episode_' + episodeNumber + '.mp3',
+      file: 'episode_' + episodeNumber + '.mp3',
       date: new Date(mp3RegexMatches[2])
     });
 
